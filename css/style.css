@@ -3,8 +3,6 @@ html {
 }
 
 body {
-  background-color: #27437d;
-  color: #27437d;
   font-family: "Open Sans", sans-serif;
   height: 100%;
 }
@@ -25,10 +23,6 @@ body {
   font-family: "Playfair Display", serif;
   font-size: 65px;
   display: inline;
-}
-
-#generate {
-  background-color: #27437d;
 }
 
 #refresh {
