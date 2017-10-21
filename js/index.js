@@ -1,14 +1,20 @@
-function newColor() {
-	rndClr = randomColor({
-		luminosity: "dark"
-	});
-	document.getElementsByTagName("body")[0].style.color = rndClr;
-	document.getElementsByTagName("body")[0].style.backgroundColor = rndClr;
-	document.getElementById("generate").style.backgroundColor = rndClr;
-	$("#quote").html(rndClr);
+function rndColor() {
+	return randomColor({ luminosity: "dark"	});
+}
+
+function applyNewColor(color) {
+	document.getElementsByTagName("body")[0].style.color = color;
+	document.getElementsByTagName("body")[0].style.backgroundColor = color;
+	document.getElementById("generate").style.backgroundColor = color;
+	$("#quote").html(color);
+}
+
+function applyRandomColor() {
+	color = rndColor();
+	applyNewColor(color);
 }
 
 $(document).ready(function() {
-	newColor();
-	$("#generate").on("click",newColor);
+	applyRandomColor();
+	$("#generate").on("click", applyRandomColor);
 });
