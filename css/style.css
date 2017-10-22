@@ -7,20 +7,37 @@ body {
   height: 100%;
 }
 
+/*button {
+  display: block;
+  outline:none !important;
+  box-shadow: none;
+  border: none;
+}
+
+button:active {
+  outline: none !important;
+  border: none;
+}
+
+button:focus {outline:0 !important;}*/
+
 .quotation-marks {
   font-family: "Playfair Display", serif;
   font-size: 50px;
   display: inline;
 }
 
+/*.dir-button {
+  display: none;
+}*/
+
 .dir-button {
   background-color: Transparent;
   background-repeat:no-repeat;
-  border: none;
   cursor:pointer;
   overflow: hidden;
-  outline:none;
   padding: 0px 20px;
+  box-shadow: none;
 }
 
 .dir-icon {
