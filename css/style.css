@@ -7,6 +7,26 @@ body {
   height: 100%;
 }
 
+.quotation-marks {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  display: inline;
+}
+
+.dir-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  padding: 0px 20px;
+}
+
+.dir-icon {
+  color: #ffffff;
+}
+
 #quote-box {
   background-color: #ffffff;
   border-radius: 10px;
@@ -16,12 +36,6 @@ body {
 
 #quote {
   font-size: 30px;
-  display: inline;
-}
-
-.quotation-marks {
-  font-family: "Playfair Display", serif;
-  font-size: 65px;
   display: inline;
 }
 
