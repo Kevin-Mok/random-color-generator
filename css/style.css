@@ -22,11 +22,15 @@ body {
   display: inline;
 }
 
+.dir-button-div {
+  width: 75px;
+  display: flex;
+}
+
 .dir-button {
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   overflow: hidden;
-  padding: 0px 20px;
 }
 
 .dir-icon {
@@ -47,4 +51,13 @@ body {
 
 #refresh {
   color: #ffffff;
+}
+
+#left-button-div {
+  padding: 0px 10px 0px 0px;
+  justify-content: flex-end;
+}
+
+#right-button-div {
+  padding: 0px 0px 0px 10px;
 }

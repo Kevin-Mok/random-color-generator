@@ -17,7 +17,9 @@
 <body>
 <div class="container-fluid h-100">
  <div class="row h-100 justify-content-center align-items-center">
-  <button class="btn dir-button" style="outline:none"><i class="fa fa-chevron-left fa-2x dir-icon" aria-hidden="true"></i></button>
+  <div class="dir-button-div" id="left-button-div">
+   <button class="btn dir-button"><i class="fa fa-chevron-left fa-2x dir-icon" aria-hidden="true"></i></button>
+  </div>
   <div id="quote-box" class="col-6">
    <p class='quotation-marks'>&#8220;</p>
    <p id="quote"></p>
@@ -25,7 +27,9 @@
    <br>
    <button id="generate" class="btn"><i class="fa fa-refresh" id="refresh" aria-hidden="true"></i></button>
   </div>
-  <button class="btn dir-button"><i class="fa fa-chevron-right fa-2x dir-icon" aria-hidden="true"></i></button>
+  <div class="dir-button-div" id="right-button-div">
+   <button class="btn dir-button"><i class="fa fa-chevron-right fa-2x dir-icon" aria-hidden="true"></i></button>
+  </div>
  </div>
 </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

@@ -5,7 +5,7 @@ function rndColor() {
 function setDirButtonHeight() {
 	var height = document.getElementById("quote-box").offsetHeight;
 	//console.log(height + "px");
-	$('.dir-button').height(height);
+	$('.dir-button-div').height(height);
 }
 
 function applyNewColor(color) {
@@ -27,4 +27,13 @@ function applyRandomColor() {
 $(document).ready(function() {
 	applyRandomColor();
 	$("#generate").on("click", applyRandomColor);
+	/*
+	$(".dir-button-div")
+	.on("mouseenter", function() {
+	  $(".dir-button").show();
+	})
+	.on("mouseleave", function() {
+	  $(".dir-button").hide();
+	});
+	*/
 });
