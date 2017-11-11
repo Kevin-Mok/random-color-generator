@@ -1,5 +1,9 @@
 var colorHistory = [];
 var curHistoryIndex = 0;
+var alternateColorNameCounter = 0;
+var documentLoaded = false;
+var alternateIntervalTime = 5000;
+var hideDirButtonsAfterLaunchTime = alternateIntervalTime;
 
 function rndColor() {
     return randomColor({
@@ -14,13 +18,13 @@ function setDirButtonHeight() {
 }
 
 function applyNewColor() {
-    var color = colorHistory[curHistoryIndex];
-    var match = ntc.name(color);
+    var color = getCurrentColor();
 
     document.getElementsByTagName("body")[0].style.color = color;
     document.getElementsByTagName("body")[0].style.backgroundColor = color;
     document.getElementById("generate").style.backgroundColor = color;
-    $("#color-name").html(match[1]);
+    $("#color-name").html(getCurrentColorName());
+    // $("#color-hex").html(color);
     setDirButtonHeight();
 }
 
@@ -30,6 +34,8 @@ function applyRandomColor() {
     colorHistory.push(color);
     curHistoryIndex = colorHistory.length - 1;
     applyNewColor();
+    alternateColorNameCounter = 0;
+    resetInterval();
 }
 
 function applyPrevColor() {
@@ -46,6 +52,38 @@ function applyNextColor() {
     applyNewColor();
 }
 
+function getCurrentColor() {
+    return colorHistory[curHistoryIndex];
+}
+
+function getCurrentColorName() {
+    return ntc.name(getCurrentColor())[1];
+}
+
+// When counter is 0, will change text to hex.
+function alternateColorName() {
+    if (documentLoaded) {
+        if (alternateColorNameCounter == 1) {
+            $("#color-name").html(getCurrentColorName());
+            alternateColorNameCounter = 0;
+        } else {
+            $("#color-name").html(getCurrentColor());
+            alternateColorNameCounter = 1;
+        }
+    }
+    // console.log(alternateColorNameCounter);
+}
+var alternateID = setInterval(alternateColorName, alternateIntervalTime);
+
+function resetInterval() {
+    clearInterval(alternateID);
+    alternateID = setInterval(alternateColorName, alternateIntervalTime);
+}
+
+function hideDirButtons() {
+    $(".dir-button").hide();
+}
+
 $(document).ready(function () {
     applyRandomColor();
     $("#generate").on("click", applyRandomColor);
@@ -54,8 +92,17 @@ $(document).ready(function () {
             $(".dir-button").show();
         })
         .on("mouseleave", function () {
-            $(".dir-button").hide();
+            hideDirButtons();
         });
+    /*     $("#color-name")
+            .on("mouseenter", function () {
+                $("#color-name").html(getCurrentColor());
+            })
+            .on("mouseleave", function () {
+                $("#color-name").html(getCurrentColorName());
+            }); */
     $("#dir-button-left").on("click", applyPrevColor);
     $("#dir-button-right").on("click", applyNextColor);
+    documentLoaded = true;
+    setTimeout(hideDirButtons, hideDirButtonsAfterLaunchTime);
 });
